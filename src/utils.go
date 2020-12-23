@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"strconv"
 	"time"
@@ -16,4 +17,20 @@ func shuffleSliceInPlace(s []int) {
 
 func getNumberOfDigits(a int) int {
 	return len(strconv.Itoa(a))
+}
+
+func printProgressIndicator(shouldStop chan bool) {
+	fmt.Print("Solving")
+	go func() {
+		for {
+			select {
+			case <-shouldStop:
+				fmt.Println()
+				return
+			default:
+				fmt.Print(".")
+				time.Sleep(time.Second)
+			}
+		}
+	}()
 }
