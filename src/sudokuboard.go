@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 // DefaultBoardLength - yeah.
@@ -68,6 +69,7 @@ func (b *SudokuBoard) getAllowedDigits() []int {
 }
 
 func (b *SudokuBoard) printBoard() {
+	valMaxLen := getNumberOfDigits(len(b.board))
 	boxLength := b.getBoxLength()
 
 	for i := range b.board {
@@ -76,9 +78,10 @@ func (b *SudokuBoard) printBoard() {
 		}
 		for boxNum := 0; boxNum < boxLength; boxNum++ {
 			for j := boxNum * boxLength; j < (boxNum+1)*boxLength; j++ {
-				fmt.Printf("%v ", b.board[i][j])
+				prefixSpaces := strings.Repeat(" ", valMaxLen-getNumberOfDigits(b.board[i][j]))
+				fmt.Printf("%v%v ", prefixSpaces, b.board[i][j])
 			}
-			fmt.Print("  ")
+			fmt.Print("   ")
 		}
 		fmt.Println()
 	}

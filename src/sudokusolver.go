@@ -1,7 +1,7 @@
 package main
 
-func (b *SudokuBoard) solve() {
-	b.sudokuSolverRecGreedy(0, 0)
+func (b *SudokuBoard) solve() bool {
+	return b.sudokuSolverRecGreedy(0, 0)
 }
 
 // Fill the board 'b' with a solution. Go over the indices

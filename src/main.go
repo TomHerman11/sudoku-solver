@@ -3,11 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	b := newSudokuBoardFromMatrix(getSudokuBoardExample(2))
-	// fmt.Println("RECEIVED:")
-	// b.printBoard()
-	b.solve()
+	b := newSudokuBoardFromMatrix(getSudokuBoardExample(0))
+	isValid, err := b.isSudokuBoardCellsValid()
+	if !isValid {
+		fmt.Println(err)
+		return
+	}
 
-	fmt.Println("\nSOLVED:")
+	isSolved := b.solve()
+	if isSolved {
+		fmt.Println("SOLVED:")
+	} else {
+		fmt.Println("FAILED. Could not solve the following board:")
+	}
 	b.printBoard()
 }

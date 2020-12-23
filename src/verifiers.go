@@ -83,6 +83,34 @@ func (b *SudokuBoard) verifyBox(rowIndex, columnIndex int) (bool, error) {
 	return true, nil
 }
 
+func (b *SudokuBoard) isSudokuBoardCellsValid() (bool, error) {
+	for i := range b.board {
+		isRowValid, err := b.verifyRow(i)
+		if !isRowValid {
+			return false, err
+		}
+	}
+
+	for j := range b.board[0] {
+		isColumnValid, err := b.verifyColumn(j)
+		if !isColumnValid {
+			return false, err
+		}
+	}
+
+	boxLength := b.getBoxLength()
+	for i := 0; i < len(b.board); i += boxLength {
+		for j := 0; j < len(b.board[0]); j += boxLength {
+			isBoxValid, err := b.verifyBox(i, j)
+			if !isBoxValid {
+				return false, err
+			}
+		}
+	}
+
+	return true, nil
+}
+
 func isLengthValidForSudokuBoard(l int) bool {
 	lSqrt := math.Sqrt(float64(l))
 
