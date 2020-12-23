@@ -1,11 +1,11 @@
 package main
 
 func (b *SudokuBoard) solve() bool {
-	return b.sudokuSolverRecGreedy(0, 0)
+	return b.sudokuSolverRecBacktracking(0, 0)
 }
 
 // Fill the board 'b' with a solution. Go over the indices
-func (b *SudokuBoard) sudokuSolverRecGreedy(rowIndex, columnIndex int) bool {
+func (b *SudokuBoard) sudokuSolverRecBacktracking(rowIndex, columnIndex int) bool {
 	if rowIndex == -1 && columnIndex == -1 {
 		// We reached the end of the board :D
 		return true
@@ -25,7 +25,7 @@ func (b *SudokuBoard) sudokuSolverRecGreedy(rowIndex, columnIndex int) bool {
 			isColumnValid, _ := b.verifyColumn(columnIndex)
 			isBoxValid, _ := b.verifyBox(rowIndex, columnIndex)
 			if isRowValid && isColumnValid && isBoxValid {
-				if b.sudokuSolverRecGreedy(nextRowIndex, nextColumnIndex) {
+				if b.sudokuSolverRecBacktracking(nextRowIndex, nextColumnIndex) {
 					return true
 				}
 			}
@@ -37,7 +37,7 @@ func (b *SudokuBoard) sudokuSolverRecGreedy(rowIndex, columnIndex int) bool {
 	// If this value was already given as part of the Sudoku, skip it:
 	// fmt.Printf("currVal is '%v' at board[%v][%v] continuing...", currVal, rowIndex, columnIndex)
 	// fmt.Println()
-	return b.sudokuSolverRecGreedy(nextRowIndex, nextColumnIndex)
+	return b.sudokuSolverRecBacktracking(nextRowIndex, nextColumnIndex)
 }
 
 func (b *SudokuBoard) getNextCellIndicesToSolve(rowIndex, columnIndex int) (int, int) {

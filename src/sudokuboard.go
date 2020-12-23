@@ -81,7 +81,7 @@ func (b *SudokuBoard) printBoard() {
 				prefixSpaces := strings.Repeat(" ", valMaxLen-getNumberOfDigits(b.board[i][j]))
 				fmt.Printf("%v%v ", prefixSpaces, b.board[i][j])
 			}
-			fmt.Print("   ")
+			fmt.Print("  ")
 		}
 		fmt.Println()
 	}

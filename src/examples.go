@@ -1,9 +1,8 @@
 package main
 
-// difficulty - 0 = easy, 1 = medium, 2 = hard, ...
 func getSudokuBoardExample(difficulty int) [][]int {
 	m := make(map[int][][]int)
-	m[0] = [][]int{ // 9x9 size sudoku:
+	m[0] = [][]int{ // 9x9 sudoku:
 		{5, 0, 0, 0, 0, 0, 2, 0, 7},
 		{0, 0, 0, 0, 3, 0, 0, 1, 0},
 		{2, 0, 8, 0, 0, 7, 0, 9, 0},
@@ -17,7 +16,7 @@ func getSudokuBoardExample(difficulty int) [][]int {
 		{4, 0, 6, 0, 0, 0, 0, 0, 1},
 	}
 
-	m[1] = [][]int{ //  16x16 sudoku size:
+	m[1] = [][]int{ // 16x16 sudoku:
 		{12, 0, 0, 0, 0, 11, 15, 0, 0, 1, 7, 0, 0, 0, 3, 5},
 		{3, 0, 5, 0, 0, 1, 9, 14, 0, 0, 13, 0, 0, 8, 0, 0},
 		{1, 0, 11, 0, 13, 5, 0, 0, 6, 0, 3, 0, 0, 7, 0, 0},
@@ -39,7 +38,15 @@ func getSudokuBoardExample(difficulty int) [][]int {
 		{0, 0, 0, 0, 16, 0, 4, 5, 14, 9, 0, 0, 0, 0, 7, 0},
 	}
 
-	m[2] = [][]int{
+	m[2] = [][]int{ // 4x4 sudoku:
+		{0, 0, 4, 0},
+		{1, 0, 0, 0},
+
+		{0, 2, 0, 0},
+		{0, 0, 0, 3},
+	}
+
+	m[3] = [][]int{
 		{0, 4, 0, 5, 0, 0, 0, 0, 0},
 		{5, 0, 0, 0, 0, 0, 0, 1, 6},
 		{0, 8, 7, 0, 0, 1, 0, 0, 0},
@@ -53,7 +60,7 @@ func getSudokuBoardExample(difficulty int) [][]int {
 		{0, 0, 5, 0, 0, 7, 0, 0, 0},
 	}
 
-	m[3] = [][]int{
+	m[4] = [][]int{
 		{0, 0, 3, 5, 0, 9, 4, 0, 0},
 		{0, 1, 8, 0, 7, 0, 9, 5, 0},
 		{5, 0, 0, 0, 6, 0, 0, 0, 8},

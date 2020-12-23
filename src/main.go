@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	b := newSudokuBoardFromMatrix(getSudokuBoardExample(0))
+	b := newSudokuBoardFromMatrix(getSudokuBoardExample(1))
 	isValid, err := b.isSudokuBoardCellsValid()
 	if !isValid {
 		fmt.Println(err)
