@@ -26,6 +26,7 @@ func printProgressIndicator(shouldStop chan bool) {
 			select {
 			case <-shouldStop:
 				fmt.Println()
+				fmt.Println()
 				return
 			default:
 				fmt.Print(".")

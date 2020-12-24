@@ -9,3 +9,4 @@ From Wikipedia: "Each cell is tested for a valid number, moving "back" when ther
 More optimized methods can also be implemented.
 
 ## Demo
+![Demo Sudoku Solver](/sudoku-solver.gif)

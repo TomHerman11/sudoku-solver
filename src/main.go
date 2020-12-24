@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	b := newSudokuBoardFromMatrix(getSudokuBoardExample(1))
+	b := newSudokuBoardFromMatrix(getSudokuBoardExample(0))
 	isValid, err := b.isSudokuBoardCellsValid()
 	if !isValid {
 		fmt.Println("The Sudoku board is not valid:", err)
